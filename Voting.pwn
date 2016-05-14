@@ -38,7 +38,8 @@ GetName(playerid)
 
 CMD:vote(playerid, params[])
 {
-    if(isnull(params)) return SCM(playerid, red, "Make a vote: /vote <Text>");
+   if(OnVote==1) return SCM(playerid,red,"There is avote going on");//bug fix
+ if(isnull(params)) return SCM(playerid, red, "Make a vote: /vote <Text>");
     new str[128];
     OnVote = 1;
   
