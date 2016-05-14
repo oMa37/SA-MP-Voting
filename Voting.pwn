@@ -94,7 +94,7 @@ CMD:cvote(playerid, params[])
 	else format(str, sizeof(str), "Administrator %s has canceled the vote", GetName(playerid));
 	SendClientMessageToAll(red, str);
 	OnVote = 0;
-	foreach(new i : Player) Voted[i] = 0;
+	foreach(new i : Player) Voted[i] = -1;
 	Voting[VoteY] = 0;
 	Voting[VoteN] = 0;
 	return 1;
@@ -135,7 +135,7 @@ public CancelVote()
 {
 	if(OnVote == 0) return 0;
 	new str[128], str2[128];
-	foreach(new i : Player) Voted[i] = 0;
+	foreach(new i : Player) Voted[i] = -1;
 	format(str, sizeof(str), "Vote: %s is OVER!", Voting[Vote]);
 	format(str2, sizeof(str2), "Yes: %d No: %d", Voting[VoteY], Voting[VoteN]);
 	SendClientMessageToAll(green, str);
